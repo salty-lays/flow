@@ -1,0 +1,22 @@
+#message{
+  font-size: 50px;
+  margin: 40vh 0 0 35vw;
+}
+span{
+  font-size: 40px;
+  margin: 3vh 0 0 22vw;
+}
+#anything{
+  background: #B5C6C2;
+  height: 30px;
+  width: 25vw;
+  color: white;
+  border: 5px solid gray;
+  margin: 8vh 0 0 0;
+}
+button {
+  height: 2.5vh;
+  width: 5vw;
+  background: #02FF00;
+  font-size: 20px;
+}
