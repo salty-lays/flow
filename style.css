@@ -1,34 +1,29 @@
 body {
-  background: #7878C1;
+  background: #AEAC73;
 }
-.squareBig {
-  height :330px;
-  width: 330px;
-  background: #B578C1;
-  border: 3px solid black;
-  border-radius: 10%;
-  margin: 33vh 0 0 33vw;
+#number {
+  font-size: 600px;
+}
+span {
+  font-size: 30px;
+  margin: 0 0 0 30vw;
+}
+.container {
   align-content: center;
-  animation : Weeee 3s infinite linear;
-}
-#squareSmol {
-  height :165px;
-  width: 165px;
-  background: #78C1BE;
+  height: 5vh;
+  width: 35vw;
+  margin: 3vh 0 0 36vw;
   border: 3px solid black;
-  border-radius: 10%;
-  margin-left: 8vw;
-  animation : Weeee 1s infinite linear;
-  animation-direction: reverse;
-  
+  border-radius: 90px;
+  background: #7CAE73;
 }
-/*now we will add animation*/
-/*keyframe is used for animation*/
-@keyframes Weeee {
-  0% { 
-    transform: rotate(0deg);
-  }
-  100%{ 
-    transform: rotate(360deg);
+#guesser{
+  height: 2.5vh;
+  border: 1px solid black;
+  border-radius: 45px;
+  margin-left: 2vw;
 }
+button {
+  background: red;
+  color: white;
 }
