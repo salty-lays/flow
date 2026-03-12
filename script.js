@@ -1,21 +1,19 @@
-let body = document.querySelector("body");
-let number = document.getElementById("number");
-let hint = document.getElementById("hint");
-let input = document.querySelector("#guesser");
-let button = document.querySelector("button");
+const james = document.getElementById("Alienjames");
+const music = new Audio("zipzip.mp3");
+james.addEventListener("click", () =>{
+  const music = new Audio("zipzip.mp3");
+music.loop = true;
+music.play();
+  moveRandom()
+})
 
-
-function guess(){
-  let yourGuess = parseInt(input.value);
-  if (yourGuess === 69) {
-    hint.innerText = "Good gal";
-    number.innerHTML ="🥰";
-  }
-  else if (yourGuess>69){
-    number.innerHTML = yourGuess;
-    hint.innerText = "lower number";
-  } else {
-    number.innerHTML = yourGuess;
-    hint.innerText = "higher number";
-  }
+function moveRandom() {
+  const maxX = window.innerWidth - james.offsetWidth;
+  const maxY = window.innerHeight - james.offsetHeight;
+  
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+  
+  james.style.left = randomX + "px";
+  james.style.top = randomY + "px";
 }
