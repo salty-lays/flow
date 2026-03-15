@@ -1,19 +1,28 @@
-const james = document.getElementById("Alienjames");
-const music = new Audio("zipzip.mp3");
-james.addEventListener("click", () =>{
-  const music = new Audio("zipzip.mp3");
-music.loop = true;
-music.play();
-  moveRandom()
-})
+let image = document.getElementById("img");
 
-function moveRandom() {
-  const maxX = window.innerWidth - james.offsetWidth;
-  const maxY = window.innerHeight - james.offsetHeight;
+let card1 = document.getElementById("card1");
+let card2 = document.getElementById("card2");
+let card3 = document.getElementById("card3");
+let card4 = document.getElementById("card4");
+
+function chngeBg(selectedCard) {
+  image.style.backgroundImage = `url(images/${selectedCard}.jpg)`;
+  image.innerHTML = "";
   
-  const randomX = Math.floor(Math.random() * maxX);
-  const randomY = Math.floor(Math.random() * maxY);
-  
-  james.style.left = randomX + "px";
-  james.style.top = randomY + "px";
 }
+
+card1.addEventListener("click", () => {
+  chngeBg("1");
+});
+
+card2.addEventListener("click", () => {
+  chngeBg("2");
+});
+
+card3.addEventListener("click", () => {
+  chngeBg("3");
+});
+
+card4.addEventListener("click", () => {
+  chngeBg("4");
+});
