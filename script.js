@@ -1,28 +1,23 @@
-let image = document.getElementById("img");
+let button = document.querySelector("button");
 
-let card1 = document.getElementById("card1");
-let card2 = document.getElementById("card2");
-let card3 = document.getElementById("card3");
-let card4 = document.getElementById("card4");
+let clicks = 0;
+let e = clicks;
+let w = e;
+let q = w;
+let h = q;
+let j = 18;
+let k = j;
 
-function chngeBg(selectedCard) {
-  image.style.backgroundImage = `url(images/${selectedCard}.jpg)`;
-  image.innerHTML = "";
+
+function add() {
+  clicks = clicks + 1;
+  h = clicks;
+  console.log(clicks);
   
+  if (clicks === 100000) {
+    let anchor = document.querySelector("#anchor");
+    anchor.style.display = "flex";
+  }
 }
 
-card1.addEventListener("click", () => {
-  chngeBg("1");
-});
-
-card2.addEventListener("click", () => {
-  chngeBg("2");
-});
-
-card3.addEventListener("click", () => {
-  chngeBg("3");
-});
-
-card4.addEventListener("click", () => {
-  chngeBg("4");
-});
+button.addEventListener("click", add);
