@@ -1,23 +1,70 @@
-let button = document.querySelector("button");
+let compTxt = document.querySelector("#comp");
+let compEmoji = document.querySelector(".computerContainer")
+let winField = document.querySelector("#winField");
+let youTxt = document.querySelector("#you");
 
-let clicks = 0;
-let e = clicks;
-let w = e;
-let q = w;
-let h = q;
-let j = 18;
-let k = j;
+function compChoice() {
+ const arr = ["PAPER","SCISSOR", "ROCK"];
+const choice = arr[Math.floor(Math.random() * arr.length)];
+if (choice === "SCISSOR") {
+  compEmoji.innerText = '✌️'
+} else if (choice==="ROCK") {
+  compEmoji.innerText ='✊'
+}
+else {
+compEmoji.innerText='🖐️'}
+return choice;
+}
 
-
-function add() {
-  clicks = clicks + 1;
-  h = clicks;
-  console.log(clicks);
-  
-  if (clicks === 100000) {
-    let anchor = document.querySelector("#anchor");
-    anchor.style.display = "flex";
+function analyzer(choice1, choice2){
+  if (choice1 === choice2) {
+    return "TIE"
+  }
+  else {
+    if (choice1 === "SCISSOR") {
+      if(choice2 === "ROCK"){
+        return choice2
+      }
+      return choice1
+    }
+    else if (choice1 === "PAPER") {
+      if(choice2 === "SCISSOR"){
+        return choice2
+      }
+      return choice1
+    }
+    else if (choice1 === "ROCK") {
+      if(choice2 === "PAPER"){
+        return choice2
+      }
+      return choice1
+    }
   }
 }
 
-button.addEventListener("click", add);
+
+function yourChoice(you) {
+ let computer = compChoice();
+ let winner = analyzer(you,computer);
+ winField.style.marginLeft= "36vw";
+ if (winner === you) {
+   winField.innerText='YOU WON ❤️';
+   winField.style.color="#07FE00"
+   youTxt.innerText= you;
+   compTxt.innerText= computer;
+   return
+ }
+ else if(winner === 'TIE'){
+   winField.innerText='GAME TIED';
+   winField.style.color='white';
+   youTxt.innerText= you;
+   compTxt.innerText= computer;
+ return
+ }
+ winField.innerText = 'YOU LOSE 😫'
+ winField.style.color="#D36161";
+youTxt.innerText = you;
+compTxt.innerText = computer;
+return;
+}
+

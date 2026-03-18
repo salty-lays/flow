@@ -1,22 +1,98 @@
 body {
-  background: #FDB2F6;
+  background: #265272;
 }
-
-button {
-  height: 150px;
-  width: 250px;
-  margin: 40vh 0 0 38vw;
-  background: #FF0000;
+#winField{
+  margin: 5vh 0 0 33vw;
+  color: #07FE00;
+}
+h1 {
   color: white;
-  font-size: 40px;
-  border-radius: 50px;
-  border: 10px solid white;
-}
-
-a {
-  position: absolute;
   font-size: 50px;
-  top: 59vh;
-  left: 30vw;
-  display: none;
+  margin: 5vh 0 0 17vw;
+}
+.computerContainer{
+  height: 230px;
+  width : 230px;
+  margin: 5vh 0 0 38vw;
+  background: #0016FF30;
+  border: 10px solid white;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  line-height: 12vh;
+  transform: rotateX(180deg);
+}
+#comp {
+  height : 150px;
+  width: 460px;
+  font-size: 40px;
+  color: #000000;
+  margin: 3vh 0 0 26vw;
+  border-radius: 50px;
+  border: 10px solid black;
+  text-align: center;
+  line-height: 130px;
+  background: #C3FF0030;
+}
+.yourContainer{
+  height: 290px;
+  width: 90vw;
+  margin: 5vh 0 0 5vw;
+  background: #FFFFFF30;
+  font-size: 100px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  line-height: 12vh;
+}
+#scissor {
+  height: 230px;
+  width : 230px;
+  background: #FF00006B;
+  border: 10px solid white;
+  font-size: 100px;
+  line-height: 12vh;
+  margin-top: 1vh;
+}
+#scissor:active{
+  background: #000000;
+  border: 8px solid white;
+}
+#paper {
+  height: 230px;
+width : 230px;
+background: #FF00006B;
+border: 10px solid white;
+font-size: 100px;
+line-height: 12vh;
+margin-top: 1vh;
+}
+#paper:active{
+  background: #000000;
+  border: 8px solid white;
+}
+#rock {
+  height: 230px;
+width : 230px;
+background: #FF00006B;
+border: 10px solid white;
+font-size: 100px;
+line-height: 12vh;
+margin-top: 1vh;
+}
+#rock:active {
+  background: #000000;
+  border: 8px solid white;
+}
+#you {
+  height : 150px;
+  width: 510px;
+  font-size: 40px;
+  color: #000000;
+  margin: 3vh 0 0 24vw;
+  border: 10px solid black;
+  text-align: center;
+  line-height: 130px;
+  border-radius: 50px;
+  background: #F1FF006B;
 }
