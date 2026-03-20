@@ -1,98 +1,50 @@
 body {
-  background: #265272;
-}
-#winField{
-  margin: 5vh 0 0 33vw;
-  color: #07FE00;
-}
-h1 {
-  color: white;
-  font-size: 50px;
-  margin: 5vh 0 0 17vw;
-}
-.computerContainer{
-  height: 230px;
-  width : 230px;
-  margin: 5vh 0 0 38vw;
-  background: #0016FF30;
-  border: 10px solid white;
-  font-size: 100px;
-  display: flex;
-  justify-content: center;
-  line-height: 12vh;
-  transform: rotateX(180deg);
-}
-#comp {
-  height : 150px;
-  width: 460px;
-  font-size: 40px;
-  color: #000000;
-  margin: 3vh 0 0 26vw;
-  border-radius: 50px;
-  border: 10px solid black;
-  text-align: center;
-  line-height: 130px;
-  background: #C3FF0030;
-}
-.yourContainer{
-  height: 290px;
-  width: 90vw;
-  margin: 5vh 0 0 5vw;
-  background: #FFFFFF30;
-  font-size: 100px;
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  line-height: 12vh;
-}
-#scissor {
-  height: 230px;
-  width : 230px;
-  background: #FF00006B;
-  border: 10px solid white;
-  font-size: 100px;
-  line-height: 12vh;
-  margin-top: 1vh;
-}
-#scissor:active{
-  background: #000000;
-  border: 8px solid white;
-}
-#paper {
-  height: 230px;
-width : 230px;
-background: #FF00006B;
-border: 10px solid white;
-font-size: 100px;
-line-height: 12vh;
-margin-top: 1vh;
-}
-#paper:active{
-  background: #000000;
-  border: 8px solid white;
-}
-#rock {
-  height: 230px;
-width : 230px;
-background: #FF00006B;
-border: 10px solid white;
-font-size: 100px;
-line-height: 12vh;
-margin-top: 1vh;
-}
-#rock:active {
-  background: #000000;
-  border: 8px solid white;
-}
-#you {
-  height : 150px;
-  width: 510px;
-  font-size: 40px;
-  color: #000000;
-  margin: 3vh 0 0 24vw;
-  border: 10px solid black;
-  text-align: center;
-  line-height: 130px;
-  border-radius: 50px;
-  background: #F1FF006B;
-}
+      margin: 0;
+      background: black;
+      color: #00ff9f;
+      font-family: monospace;
+      overflow: hidden;
+    }
+
+    #startBtn {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      font-size: 20px;
+      background: red;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    #screen {
+      display: none;
+      padding: 20px;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    .glitch {
+      animation: glitch 0.2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0px); }
+      25% { transform: translate(-2px, 2px); }
+      50% { transform: translate(2px, -2px); }
+      75% { transform: translate(-2px, -2px); }
+      100% { transform: translate(2px, 2px); }
+    }
+
+    #progressBar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 5px;
+      background: #00ff9f;
+      width: 0%;
+    }

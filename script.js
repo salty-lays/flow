@@ -1,70 +1,57 @@
-let compTxt = document.querySelector("#comp");
-let compEmoji = document.querySelector(".computerContainer")
-let winField = document.querySelector("#winField");
-let youTxt = document.querySelector("#you");
-
-function compChoice() {
- const arr = ["PAPER","SCISSOR", "ROCK"];
-const choice = arr[Math.floor(Math.random() * arr.length)];
-if (choice === "SCISSOR") {
-  compEmoji.innerText = '✌️'
-} else if (choice==="ROCK") {
-  compEmoji.innerText ='✊'
-}
-else {
-compEmoji.innerText='🖐️'}
-return choice;
-}
-
-function analyzer(choice1, choice2){
-  if (choice1 === choice2) {
-    return "TIE"
+function startTroll() {
+  document.getElementById("startBtn").style.display = "none";
+  
+  const screen = document.getElementById("screen");
+  const bar = document.getElementById("progressBar");
+  
+  screen.style.display = "block";
+  screen.classList.add("glitch");
+  
+  const messages = [
+    "Initializing system breach...",
+    "Bypassing firewall...",
+    "Injecting payload...",
+    "Accessing private files...",
+    "Downloading data...",
+    "Tracking IP address...",
+    "Location found: Mumbai, India",
+    "Sending data to server...",
+    "Granting remote access...",
+    "ERROR... ERROR...",
+    "System override complete."
+  ];
+  
+  let i = 0;
+  let progress = 0;
+  
+  const textInterval = setInterval(() => {
+    if (i < messages.length) {
+      screen.innerText += messages[i] + "\n";
+      i++;
+    } else {
+      clearInterval(textInterval);
+      finalChaos();
+    }
+  }, 700);
+  
+  const progressInterval = setInterval(() => {
+    progress += Math.random() * 10;
+    bar.style.width = progress + "%";
+    
+    if (progress >= 100) {
+      clearInterval(progressInterval);
+    }
+  }, 300);
+  
+  function finalChaos() {
+    setInterval(() => {
+      document.body.style.background =
+        document.body.style.background === "black" ? "#100" : "black";
+      
+      screen.style.color =
+        screen.style.color === "red" ? "#00ff9f" : "red";
+      
+      screen.innerText += "\n⚠️ SYSTEM COMPROMISED ⚠️";
+    }, 200);
   }
-  else {
-    if (choice1 === "SCISSOR") {
-      if(choice2 === "ROCK"){
-        return choice2
-      }
-      return choice1
-    }
-    else if (choice1 === "PAPER") {
-      if(choice2 === "SCISSOR"){
-        return choice2
-      }
-      return choice1
-    }
-    else if (choice1 === "ROCK") {
-      if(choice2 === "PAPER"){
-        return choice2
-      }
-      return choice1
-    }
-  }
 }
-
-
-function yourChoice(you) {
- let computer = compChoice();
- let winner = analyzer(you,computer);
- winField.style.marginLeft= "36vw";
- if (winner === you) {
-   winField.innerText='YOU WON ❤️';
-   winField.style.color="#07FE00"
-   youTxt.innerText= you;
-   compTxt.innerText= computer;
-   return
- }
- else if(winner === 'TIE'){
-   winField.innerText='GAME TIED';
-   winField.style.color='white';
-   youTxt.innerText= you;
-   compTxt.innerText= computer;
- return
- }
- winField.innerText = 'YOU LOSE 😫'
- winField.style.color="#D36161";
-youTxt.innerText = you;
-compTxt.innerText = computer;
-return;
-}
-
