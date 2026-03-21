@@ -1,50 +1,84 @@
 body {
-      margin: 0;
-      background: black;
-      color: #00ff9f;
-      font-family: monospace;
-      overflow: hidden;
-    }
+  background: #A6DBF2;
+}
 
-    #startBtn {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px 40px;
-      font-size: 20px;
-      background: red;
-      border: none;
-      color: white;
-      border-radius: 10px;
-      cursor: pointer;
-      z-index: 10;
-    }
+h1 {
+  margin: 20vh 0 0 17vw;
+  font-size: 50px;
+}
+.container {
+  height: 400px;
+  width: 400px;
+  background: #F2A6A661;
+  border: 5px solid black;
+  margin: 10vh 0 0 30vw;
+}
 
-    #screen {
-      display: none;
-      padding: 20px;
-      font-size: 14px;
-      white-space: pre-wrap;
-    }
+#orange {
+  height : 400px;
+  width : 400px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7nz1C_5rV4mSRufXpiXDEq3stBNgK3LoMgw&s");
+  background-size : cover;
+  position: absolute;
+  z-index: 5;
+}
+#apple {
+  height : 400px;
+  width : 400px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfqjr5jwipa57eFknTd5w-idfoYeyf8elLOhCyvNpW0f7ClfA2CPBo0SQ&s=10");
+  background-size : cover;
+  position: absolute;
+  z-index: 4;
+}
+#grapes {
+  height : 400px;
+  width : 400px;
+  background-image: url("https://www.istockphoto.com/photo/grape-dark-grape-grapes-with-leaves-isolated-with-clipping-path-full-depth-of-field-gm803721418-139375583");
+  background-size : cover;
+  position: absolute;
+  z-index: 3;
+}
+#berry {
+  height : 400px;
+  width : 400px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJwfeYO9DftwaBVWFQ8leyG8lHmWELCb0ghfSmBU1__WgfnREcxsMhsRKW&s=10");
+  background-size : cover;
+  position: absolute;
+  z-index: 2;
+}
+#tomato {
+  height : 400px;
+  width : 400px;
+  color: pink;
+  line-height: 150px;
+  text-align: center;
+  font-size: 35px;
+  background-image: url("https://res.cloudinary.com/dkxg7bj0w/image/upload/v1768577312/chat_images/klfmup5y9ya2lqlyl8zv.jpg");
+  position: absolute;
+  background-size: cover;
+  z-index: 1;
+}
 
-    .glitch {
-      animation: glitch 0.2s infinite;
-    }
+#hint {
+  height: 50px;
+  width: 50px;
+  background: #FFF800;
+  border: 5px solid black;
+  border-radius: 50%;
+  color: red;
+  text-align: center;
+  font-size: 30px;
+  line-height: 45px;
+  margin: 5vh 0 0 48vw;
+}
 
-    @keyframes glitch {
-      0% { transform: translate(0px); }
-      25% { transform: translate(-2px, 2px); }
-      50% { transform: translate(2px, -2px); }
-      75% { transform: translate(-2px, -2px); }
-      100% { transform: translate(2px, 2px); }
-    }
-
-    #progressBar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      height: 5px;
-      background: #00ff9f;
-      width: 0%;
-    }
+.hintGain {
+  height: 70px;
+  width: 300px;
+  border: 5px solid black;
+  color: red;
+  text-align: center;
+  font-size: 30px;
+  line-height: 45px;
+  margin: 5vh 0 0 35vw;
+}
