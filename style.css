@@ -1,84 +1,37 @@
 body {
-  background: #A6DBF2;
+  background: #475A42;
 }
 
-h1 {
-  margin: 20vh 0 0 17vw;
-  font-size: 50px;
-}
 .container {
-  height: 400px;
-  width: 400px;
-  background: #F2A6A661;
+  position: absolute;
+  height: auto;
+  width: 100vw;
+  max-width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px;
+}
+#add {
+  height: 50px;
+  width: 150px;
+  font-size: 20px;
+  background: #4EFF00;
   border: 5px solid black;
-  margin: 10vh 0 0 30vw;
-}
-
-#orange {
-  height : 400px;
-  width : 400px;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7nz1C_5rV4mSRufXpiXDEq3stBNgK3LoMgw&s");
-  background-size : cover;
-  position: absolute;
-  z-index: 5;
-}
-#apple {
-  height : 400px;
-  width : 400px;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfqjr5jwipa57eFknTd5w-idfoYeyf8elLOhCyvNpW0f7ClfA2CPBo0SQ&s=10");
-  background-size : cover;
-  position: absolute;
-  z-index: 4;
-}
-#grapes {
-  height : 400px;
-  width : 400px;
-  background-image: url("https://www.istockphoto.com/photo/grape-dark-grape-grapes-with-leaves-isolated-with-clipping-path-full-depth-of-field-gm803721418-139375583");
-  background-size : cover;
-  position: absolute;
-  z-index: 3;
-}
-#berry {
-  height : 400px;
-  width : 400px;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJwfeYO9DftwaBVWFQ8leyG8lHmWELCb0ghfSmBU1__WgfnREcxsMhsRKW&s=10");
-  background-size : cover;
-  position: absolute;
+  margin: 40vh 0 0 43vw;
+  transition: background 0.2s;
+  position: relative;
   z-index: 2;
 }
-#tomato {
-  height : 400px;
-  width : 400px;
-  color: pink;
-  line-height: 150px;
-  text-align: center;
-  font-size: 35px;
-  background-image: url("https://res.cloudinary.com/dkxg7bj0w/image/upload/v1768577312/chat_images/klfmup5y9ya2lqlyl8zv.jpg");
-  position: absolute;
-  background-size: cover;
-  z-index: 1;
+#add:active{
+  background: #FF0909;
 }
-
-#hint {
+.block {
   height: 50px;
   width: 50px;
-  background: #FFF800;
-  border: 5px solid black;
-  border-radius: 50%;
-  color: red;
+  background: black;
+  border: 5px solid white;
+  color: #000000;
+  font-size: 35px;
   text-align: center;
-  font-size: 30px;
-  line-height: 45px;
-  margin: 5vh 0 0 48vw;
-}
-
-.hintGain {
-  height: 70px;
-  width: 300px;
-  border: 5px solid black;
-  color: red;
-  text-align: center;
-  font-size: 30px;
-  line-height: 45px;
-  margin: 5vh 0 0 35vw;
 }

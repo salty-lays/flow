@@ -1,9 +1,19 @@
-let hint = document.getElementById("hint");
+let container = document.querySelector(".container");
+let btn = document.getElementById("add");
+let count = 1;
+const colors = ["red", "blue", "green", "yellow", "purple", "orange",'pink','white','lime','hotpink'];
 
-hint.addEventListener("click",()=>{
-  hint.innerText="z-index in css";
-  hint.style.height ="70px";
-  hint.style.width ="300px";
-  hint.style.borderRadius = "1px";
-  hint.style.margin = "5vh 0 0 35vw"
+function getRandomColor() {
+  const index = Math.floor(Math.random() * colors.length);
+  return colors[index];
+}
+
+btn.addEventListener("click",()=>{
+  const newBlock = document.createElement("div");
+  newBlock.classList.add('block');
+  newBlock.style.backgroundColor = getRandomColor();
+  newBlock.textContent = count;
+  container.appendChild(newBlock);
+  count++;
 })
+
