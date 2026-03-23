@@ -1,19 +1,38 @@
-let container = document.querySelector(".container");
-let btn = document.getElementById("add");
-let count = 1;
-const colors = ["red", "blue", "green", "yellow", "purple", "orange",'pink','white','lime','hotpink'];
+let hr = document.getElementById('hour');
+let min = document.getElementById('minutes');
+let sec = document.getElementById('seconds');
 
-function getRandomColor() {
-  const index = Math.floor(Math.random() * colors.length);
-  return colors[index];
+const now = new Date();
+
+let hours = now.getHours();
+let minutes = now.getMinutes();
+let seconds = now.getSeconds();
+
+function setTime(hrs,mins,secs){
+  hr.innerText=`${hrs}`;
+  min.innerText=`${mins}`;
+  sec.innerText=`${secs}`;
+  hours = hrs;
+  minutes = mins;
+  seconds = secs;
 }
 
-btn.addEventListener("click",()=>{
-  const newBlock = document.createElement("div");
-  newBlock.classList.add('block');
-  newBlock.style.backgroundColor = getRandomColor();
-  newBlock.textContent = count;
-  container.appendChild(newBlock);
-  count++;
-})
-
+setInterval(() => {
+  seconds++;
+  
+  if (seconds === 60) {
+    seconds = 0;
+    minutes++;
+  }
+  
+  if (minutes === 60) {
+    minutes = 0;
+    hours++;
+  }
+  
+  if (hours === 24) {
+    hours = 0;
+  }
+  
+  setTime(hours, minutes, seconds);
+}, 1000);
