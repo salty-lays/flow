@@ -1,35 +1,30 @@
 body {
-  background: #3D6BAA;
+    background: papayawhip;
+    text-align: center;
 }
-h1 {
-  font-size: 100px;
-  margin: 10vh 0 0 30vw;
-  color: white;
+p {
+    margin-top: 40vh;
+    margin-left: 5vw;
+    font-size: 30px;
+    color: brown;
 }
-.clock {
-  height: 120px;
-  width : 320px;
-  background: #38383863;
-  margin: 20vh 0 0 32vw;
-  border: 5px double black;
-  display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-  line-height: 6vh;
+button {
+    height: 55px;
+    width: 110px;
+    background: hotpink;
 }
-#hour,#minutes,#seconds {
-  height: 110px;
-  width: 106px;
-  font-size: 50px;
-  color: white;
-  border: 5px dotted black;
+#photo {
+    margin-top: 500px;
+    height: 330px;
+    width: 250px;
 }
-#hour {
-  background: #534F15;
+.box {
+    margin-top: 1vh;
+    margin-left: 5vw;
 }
-#minutes {
-  background: #1E2B8B;
+.text {
+    margin-top: 3vh;
+    font-size: 35px;
+    color: blueviolet;
 }
-#seconds {
-  background: #A41F1F;
-}
+    
