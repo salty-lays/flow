@@ -1,86 +1,49 @@
 body {
-  background: #E6E0B8;
+  background: #FFA700;
 }
-
-.container {
-  height: auto;
-  width: 90vw;
-  margin: 50px;
-  display: flex;
-  flex-wrap : wrap;
-  gap: 20px;
+h1 {
+  font-size: 50px;
+  margin: 3vh 0 3vh 34vw;
 }
-
-@keyframes drop {
-  0% {
-    transform: translateY(-200px) scale(0.8);
-    opacity: 0;
-  }
-  60% {
-    transform: translateY(10px) scale(1.05);
-  }
-  80% {
-    transform: translateY(-5px) scale(0.98);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
-}
-
-.droplet {
+.gameContainer {
   position: relative;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  line-height: 2.5vh;
+  height: 87vh;
+  width: 96vw;
+  margin-left: 1vw;
+  background: #FF0000BA;
+  border: 7px solid black;
+  overflow: hidden;
+}
+#catched {
+  position: absolute;
+  height: 6vh;
+  width: 52vw;
   text-align: center;
-  background: radial-gradient(circle at 30% 30%, #aeefff, #03a9f4 70%, #0288d1);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  box-shadow:
-    inset -5px -10px 15px rgba(0, 0, 0, 0.2),
-    inset 5px 10px 15px rgba(255, 255, 255, 0.6),
-    0 10px 15px rgba(0, 0, 0, 0.2);
-  animation: drop 1s ease forwards;
-}
-
-/* Highlight reflection */
-.droplet::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 10px;
-  width: 12px;
-  height: 18px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  transform: rotate(20deg);
-  filter: blur(1px);
-}
-
-/* Smaller secondary highlight */
-.droplet::after {
-  content: '';
-  position: absolute;
-  bottom: 10px;
-  right: 8px;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-}
-
-button {
-  position: absolute;
-  height: 60px;
-  font-size: 20px;
-  width: 100px;
-  top: 40vh;
-  left: 40vw;
-  background: skyblue;
+  line-height: 5vh;
+  font-weight: bold;
+  font-size: 50px;
+  background: #60B143;
   border: 5px solid black;
   border-radius: 10px;
+  top: 32vh;
+  left: 20vw;
+  display: none;
 }
-button:active {
-  background: red;
+.fruitCake {
+  height: 100px;
+  width: 25vw;
+  margin: 13px;
+  background-image : url("fruitCake.png");
+  background-size: cover;
+}
+button {
+  z-index: 2;
+  position: absolute;
+  height: 3vh;
+  width: 13vw;
+  font-size: 23px;
+  border: 5px solid black;
+  border-radius: 5px;
+  left: 43vw;
+  top: 44vh;
 }

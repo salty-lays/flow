@@ -1,12 +1,39 @@
-let container = document.querySelector('.container');
+let gameContainer = document.querySelector('.gameContainer');
+let button = document.querySelector('button');
+let catched = document.querySelector('#catched');
 
-function startRain() {
-  for (let i = 1;i <= 800;i++){
-    setTimeout(() =>{
-    const newDrop = document.createElement('div');
-    newDrop.classList.add('droplet')
-    newDrop.innerText = i;
-    container.appendChild(newDrop);
-  }, i * 200)
+function started() {
+  button.style.display = 'none';
+  
+  let gooble = document.createElement('div');
+  gooble.classList.add('fruitCake');
+  gameContainer.appendChild(gooble);
+  
+  let goobleClicked = false;
+  
+  gooble.onclick = () => {
+    goobleClicked = true;
+    gooble.remove();
+    catched.style.display = 'block';
+  };
+  
+  function moveLoop() {
+    
+    while (!goobleClicked) {
+      
+      let x = Math.random() * (gameContainer.clientWidth - gooble.offsetWidth);
+      let y = Math.random() * (gameContainer.clientHeight - gooble.offsetHeight);
+      
+      gooble.style.position = "absolute";
+      gooble.style.left = x + "px";
+      gooble.style.top = y + "px";
+      break;
+    }
+    
+    if (!goobleClicked) {
+      setTimeout(moveLoop, 500);
+    }
   }
+  
+  moveLoop();
 }
