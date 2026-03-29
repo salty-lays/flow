@@ -1,49 +1,50 @@
 body {
-  background: #FFA700;
+  background: #9669DBFA;
 }
-h1 {
-  font-size: 50px;
-  margin: 3vh 0 3vh 34vw;
-}
-.gameContainer {
-  position: relative;
-  height: 87vh;
-  width: 96vw;
-  margin-left: 1vw;
-  background: #FF0000BA;
-  border: 7px solid black;
-  overflow: hidden;
-}
-#catched {
-  position: absolute;
-  height: 6vh;
-  width: 52vw;
+
+h1 {  
+  height : 14vh;
+  width: 50vw;
+  background: white;
   text-align: center;
-  line-height: 5vh;
-  font-weight: bold;
-  font-size: 50px;
-  background: #60B143;
-  border: 5px solid black;
-  border-radius: 10px;
-  top: 32vh;
-  left: 20vw;
-  display: none;
+  line-height: 12vh;
+  border: 10px solid black;
+  font-size: 100px;
+  margin: 18vh 0 0 18vw;
 }
-.fruitCake {
-  height: 100px;
-  width: 25vw;
-  margin: 13px;
-  background-image : url("fruitCake.png");
-  background-size: cover;
+#error {
+  position: absolute;
+  color : red;
+  font-size : 50px;
+  margin: -15vh 0 0 13vw;
+}
+#container {
+  height: 15vh;
+  width: 65vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10vh 0 0 12vw;
+  font-size: 30px;
+  color: #FF0000;
+}
+
+input {
+  height: 60px;
+  width: 45vw;
+  border: none;
+  background: #FFFFFF59;
+  border-bottom: 5px solid blue;
+  font-size: 20px;
+  color: black;
+  text-align: center;
 }
 button {
-  z-index: 2;
-  position: absolute;
-  height: 3vh;
-  width: 13vw;
-  font-size: 23px;
+  height: 50px;
+  width: 15vw;
   border: 5px solid black;
-  border-radius: 5px;
-  left: 43vw;
-  top: 44vh;
+  border-radius: 20px;
+  font-size: 20px;
+  background: lightgreen;
+  margin: 0vh 0 0 37vw;
 }

@@ -1,39 +1,22 @@
-let gameContainer = document.querySelector('.gameContainer');
-let button = document.querySelector('button');
-let catched = document.querySelector('#catched');
+let heading = document.querySelector('h1');
+let inputColor = document.getElementById('color');
+let inputIndex = document.getElementById('index');
+let text = heading.innerText;
 
-function started() {
-  button.style.display = 'none';
-  
-  let gooble = document.createElement('div');
-  gooble.classList.add('fruitCake');
-  gameContainer.appendChild(gooble);
-  
-  let goobleClicked = false;
-  
-  gooble.onclick = () => {
-    goobleClicked = true;
-    gooble.remove();
-    catched.style.display = 'block';
-  };
-  
-  function moveLoop() {
-    
-    while (!goobleClicked) {
-      
-      let x = Math.random() * (gameContainer.clientWidth - gooble.offsetWidth);
-      let y = Math.random() * (gameContainer.clientHeight - gooble.offsetHeight);
-      
-      gooble.style.position = "absolute";
-      gooble.style.left = x + "px";
-      gooble.style.top = y + "px";
-      break;
-    }
-    
-    if (!goobleClicked) {
-      setTimeout(moveLoop, 500);
-    }
-  }
-  
-  moveLoop();
+heading.innerHTML = text
+ .split("")
+ .map(letter => `<span>${letter}</span>`)
+ .join("");
+
+const changeColor = () => {
+ let color = inputColor.value;
+ let index = Number(inputIndex.value) - 1;
+ try {
+  document.getElementById('error').innerText = ''
+ let letters = heading.querySelectorAll("span");
+ letters[index].style.color = color;
+}
+catch {
+ document.getElementById('error').innerText = 'PLEASE enter Valid Values';
+}
 }
