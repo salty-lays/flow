@@ -1,50 +1,54 @@
 body {
-  background: #9669DBFA;
+  background: #FF5500A3;
 }
 
-h1 {  
-  height : 14vh;
-  width: 50vw;
-  background: white;
-  text-align: center;
-  line-height: 12vh;
-  border: 10px solid black;
-  font-size: 100px;
-  margin: 18vh 0 0 18vw;
+#card {
+  margin: 50px;
+  height: 60vh;
+  width: 90vw;
+  background: #000000D1;
+  border-radius: 50px;
+  color: white;
+  line-height: 20vh;
 }
-#error {
-  position: absolute;
-  color : red;
-  font-size : 50px;
-  margin: -15vh 0 0 13vw;
+#resCard {
+  margin: 50px;
+  height: 30vh;
+  width: 90vw;
+  background: #000000D1;
+  border-radius: 50px;
+  color: white;
+  line-height: 25vh;
 }
-#container {
-  height: 15vh;
-  width: 65vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 10vh 0 0 12vw;
-  font-size: 30px;
-  color: #FF0000;
+h1 {
+  margin-left: 15vw;
+  font-size: 80px;
+}
+#res {
+  font-size: 150px;
+  margin-left: 35vw;
 }
 
 input {
-  height: 60px;
-  width: 45vw;
-  border: none;
-  background: #FFFFFF59;
-  border-bottom: 5px solid blue;
-  font-size: 20px;
-  color: black;
+  height: 200px;
+  width: 200px;
+  border-radius: 50px;
+  font-size: 90px;
+  font-weight: bold;
   text-align: center;
 }
-button {
-  height: 50px;
-  width: 15vw;
-  border: 5px solid black;
-  border-radius: 20px;
-  font-size: 20px;
-  background: lightgreen;
-  margin: 0vh 0 0 37vw;
+#fstIn {
+  position: absolute;
+  top: 30vh;
+  left: 17vw;
+}
+#secIn {
+  position: absolute;
+  top: 30vh;
+  left: 60vw;
+}
+#operator {
+  position: absolute;
+  top: 46vh;
+  left: 39vw;
 }
