@@ -1,50 +1,41 @@
-let in1 = document.querySelector('#fstIn');
-let in2 = document.querySelector('#secIn');
-let operator = document.querySelector('#operator');
-let result = document.getElementById('res');
+let heads = document.querySelector('.heads');
+let timer = document.getElementById('timer');
+let body = document.querySelector('body');
+let input = document.getElementById('color');
+let result = document.getElementById('result');
+let resetBtn = document.getElementById('reset');
 
-function calculate(valOne, valTwo, valOperator) {
-  let ans;
-  
-  switch (valOperator) {
-    case '+':
-      ans = valOne + valTwo;
-      break;
-    case '-':
-      ans = valOne - valTwo;
-      break;
-    case '*':
-      ans = valOne * valTwo;
-      break;
-    case '/':
-      if (valTwo === 0) return ""; // prevent divide by zero
-      ans = valOne / valTwo;
-      break;
-    default:
-      return "";
+
+function started() {
+  let colors = ['red','blue','green','pink','yellow','lightgreen','hotpink','orange','brown'];
+
+let randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+  heads.style.display = 'none';
+  input.style.display = 'flex';
+  body.style.backgroundColor = randomColor;
+  for (let i = 5; i >= 0; i--) {
+   setTimeout(() =>{
+     timer.innerText = i;
+   },(5-i) * 1000)
   }
-  
-  return ans;
+  setTimeout(() => {
+    
+    result.style.display = 'flex';
+    resetBtn.style.display = 'flex'
+    if (input.value.toLowerCase() === randomColor) {
+      result.innerText = 'THAT WAS EASY';
+      result.style.color = 'lightblue';
+    } else {
+      result.innerText = 'AHH LAMEE';
+      result.style.color = 'black';
+    }
+  }, 5000);
 }
 
-function updateResult() {
-  let val1 = parseFloat(in1.value);
-  let val2 = parseFloat(in2.value);
-  let op = operator.value;
-  
-  // check valid inputs
-  if (isNaN(val1) || isNaN(val2)) {
-    result.innerText = "";
-    return;
-  }
-  
-  let ans = calculate(val1, val2, op);
-  
-  // only show valid result
-  result.innerText = ans !== undefined ? ans : "";
+function resetPlz() {
+  input.value = '';
+  result.innerText = '';
+  resetBtn.style.display = 'none';
+  started();
 }
-
-// Real-time listeners
-in1.addEventListener("input", updateResult);
-in2.addEventListener("input", updateResult);
-operator.addEventListener("change", updateResult);
