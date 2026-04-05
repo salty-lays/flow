@@ -1,97 +1,45 @@
 body {
-  background: #9BA0D6;
+  background: #D0DD8B;
 }
 
 h1 {
-  font-size: 50px;
-  margin: 20vh 0 0 16vw;
-}
-#result{
-   font-size: 50px;
-   margin: 20vh 0 0 30vw;
-   display: none;
-}
-#reset {
-  display : none;
+  height: 10vh;
+  width: 50vw;
+  font-size: 70px;
   text-align: center;
-  line-height: 3.5vh;
-  height: 100px;
-  width: 150px;
-  margin: 10vh 0 0 43vw;
-  background: #425A45;
-  color: #fff;
-  font-size: 25px;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-input {
-  position: absolute;
-  margin: 25vh 0 0 28vw;
-}
-
-#color{
-  height: 5vh;
-  width: 40%;
-  padding: 12px;
-  font-size: 25px;
-  text-align: center;
-  border: 10px solid yellow;
-  border-radius: 8px;
-  outline: none;
-  display: none;
-}
-
-#color label {
-  position: absolute;
-  left: 12px;
-  top: 12px;
+  line-height: 8vh;
+  margin: 10vh 0 0 25vw;
   background: white;
-  padding: 0 5px;
-  color: #777;
-  transition: 0.3s;
+  border-radius : 50px;
 }
 
-#color input:focus+label,
-#color input:valid+label {
-  top: -8px;
-  font-size: 12px;
-  color: #4f46e5;
-}
-#timer {
-  height: 150px;
-  width: 280px;
-  background: white;
-  font-size: 80px;
-  text-align: center;
-  line-height: 7vh;
+button{
+  height: 50px;
+  width : 100px;
+  background: #C95252;
+  border: 5px solid white;
+  font-size: 20px;
   font-weight: bold;
-  border-radius: 30px;
-  border: 10px solid black;
-  margin: 5vh 0 0 34vw;
+  color: white;
 }
-#start {
-  height: 100px;
-  width: 150px;
-  margin: 10vh 0 0 42vw;
-  background: #425A45;
-  color: #fff;
-  font-size: 25px;
-  padding: 12px 28px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+.clicked {
+  border: 8px solid black;
+  color: #000;
+}
+#btns {
+  margin: 5vh 0 0 32vw;
+  display: flex;
+  gap: 30px;
 }
 
-#start:active {
-  transform: scale(0.95);
+#change {
+  height: 55px;
+  width: 200px;
+  position: absolute;
+  background: green;
+  top: 40vh;
+  left : 42vw;
 }
-
-#start:focus {
-  outline: none;
+#change:active {
+  background: black;
 }

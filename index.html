@@ -9,15 +9,15 @@
 <link rel="stylesheet" href="style.css">
 
 <body>
-  
-  <div class="heads">
-   <h1>IDENTIFY THE COLOR</h1>
-   <button id="start" onclick="started()">START</button>
+
+  <h1 id="num"></h1>
+  <button onclick="changeValue(value)" id="change">Change</button>
+  <div id="btns">
+    
+  <button id="varBtn" onclick="changeClicked('var')">Var</button>
+  <button id="constBtn" onclick="changeClicked('const')">Const</button>
+   <button id="letBtn" onclick="changeClicked('let')">Let</button>
   </div>
-   <div id="timer">10</div>
-   <h2 id="result">hello</h2>
-   <input type="text" id="color" placeholder="Type Color Here...">
-   <button id="reset" onclick="resetPlz()">RESET</button>
 </body>
 <script src="script.js"></script>
 </html>

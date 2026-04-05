@@ -1,41 +1,55 @@
-let heads = document.querySelector('.heads');
-let timer = document.getElementById('timer');
-let body = document.querySelector('body');
-let input = document.getElementById('color');
-let result = document.getElementById('result');
-let resetBtn = document.getElementById('reset');
+let num = document.getElementById('num');
 
-
-function started() {
-  let colors = ['red','blue','green','pink','yellow','lightgreen','hotpink','orange','brown'];
-
-let randomColor = colors[Math.floor(Math.random() * colors.length)];
-
-  heads.style.display = 'none';
-  input.style.display = 'flex';
-  body.style.backgroundColor = randomColor;
-  for (let i = 5; i >= 0; i--) {
-   setTimeout(() =>{
-     timer.innerText = i;
-   },(5-i) * 1000)
-  }
-  setTimeout(() => {
+let varBtn = document.getElementById('varBtn');
+let constBtn = document.getElementById('constBtn');
+let letBtn = document.getElementById('letBtn')
     
-    result.style.display = 'flex';
-    resetBtn.style.display = 'flex'
-    if (input.value.toLowerCase() === randomColor) {
-      result.innerText = 'THAT WAS EASY';
-      result.style.color = 'lightblue';
-    } else {
-      result.innerText = 'AHH LAMEE';
-      result.style.color = 'black';
-    }
-  }, 5000);
+let clicked = 'var';
+varBtn.classList.add('clicked');
+let value = 66;
+function changeClicked(me) {
+  removePrev();
+  if (me === 'var') {
+    clicked = 'var'
+    varBtn.classList.add('clicked');
+  }
+  else if (me === 'const') {
+    clicked = 'const'
+    constBtn.classList.add('clicked');
+  }
+  else if (me === 'let') {
+    clicked = 'let'
+    letBtn.classList.add('clicked');
+  }
+  
+  
 }
 
-function resetPlz() {
-  input.value = '';
-  result.innerText = '';
-  resetBtn.style.display = 'none';
-  started();
+const changeValue = () =>{
+  
+  if (clicked === 'var') {
+    var varValue = value
+    varValue++
+    value = varValue;
+    num.innerText = varValue;
+  }
+  else if (clicked === 'const') {
+    const constValue = value;
+    constValue++
+    value = constValue;
+    num.innerText = constValue;
+  }
+  else if (clicked === 'let') {
+    let letValue = value;
+    letValue++
+    value = letValue;
+    num.innerText = letValue;
+  }
 }
+
+function removePrev() {
+  letBtn.classList.remove('clicked')
+  constBtn.classList.remove('clicked')
+  varBtn.classList.remove('clicked')
+}
+changeValue();
