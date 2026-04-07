@@ -1,55 +1,31 @@
-let num = document.getElementById('num');
+let btn = document.getElementById('btn');
+let circle = document.getElementById('circle');
+let body = document.querySelector('body');
+let h1 = document.querySelector('h1')
 
-let varBtn = document.getElementById('varBtn');
-let constBtn = document.getElementById('constBtn');
-let letBtn = document.getElementById('letBtn')
-    
-let clicked = 'var';
-varBtn.classList.add('clicked');
-let value = 66;
-function changeClicked(me) {
-  removePrev();
-  if (me === 'var') {
-    clicked = 'var'
-    varBtn.classList.add('clicked');
-  }
-  else if (me === 'const') {
-    clicked = 'const'
-    constBtn.classList.add('clicked');
-  }
-  else if (me === 'let') {
-    clicked = 'let'
-    letBtn.classList.add('clicked');
-  }
-  
-  
+var state = 'black';
+
+function change() {
+  circle.classList.add(`mode${state}`); //animation
+  body.classList.add(`${state}`);
 }
 
-const changeValue = () =>{
+btn.addEventListener('click',()=>{
+  circle.classList.remove(`mode${state}`); 
+  //removing class is imp
   
-  if (clicked === 'var') {
-    var varValue = value
-    varValue++
-    value = varValue;
-    num.innerText = varValue;
-  }
-  else if (clicked === 'const') {
-    const constValue = value;
-    constValue++
-    value = constValue;
-    num.innerText = constValue;
-  }
-  else if (clicked === 'let') {
-    let letValue = value;
-    letValue++
-    value = letValue;
-    num.innerText = letValue;
-  }
-}
-
-function removePrev() {
-  letBtn.classList.remove('clicked')
-  constBtn.classList.remove('clicked')
-  varBtn.classList.remove('clicked')
-}
-changeValue();
+  h1.style.color = `${state}`;
+  btn.style.backgroundColor = `${state}`
+  // everything depends on state variable 
+  
+  body.classList.remove(`${state}`);
+  
+  state = state === 'black' ? 'white' : 'black';
+  txt = state === 'black' ? 'YOU' : 'DUMB';
+  
+  h1.innerText = txt;
+  //this called ternary operator (shortcut instead using if and else )
+  
+  circle.style.backgroundColor = `${state}`
+  change();
+})
