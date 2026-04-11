@@ -1,31 +1,25 @@
-let btn = document.getElementById('btn');
-let circle = document.getElementById('circle');
+import { getAnswer } from './checker.js';
+
 let body = document.querySelector('body');
-let h1 = document.querySelector('h1')
+let btn = document.querySelector('button');
+let ans = document.querySelector('.ans');
+let quest = document.getElementById('question');
+let hints = ["how are you", "love", "time", "date",'day','age','name'];
+let hintIndex = 0;
 
-var state = 'black';
-
-function change() {
-  circle.classList.add(`mode${state}`); //animation
-  body.classList.add(`${state}`);
-}
 
 btn.addEventListener('click',()=>{
-  circle.classList.remove(`mode${state}`); 
-  //removing class is imp
-  
-  h1.style.color = `${state}`;
-  btn.style.backgroundColor = `${state}`
-  // everything depends on state variable 
-  
-  body.classList.remove(`${state}`);
-  
-  state = state === 'black' ? 'white' : 'black';
-  txt = state === 'black' ? 'YOU' : 'DUMB';
-  
-  h1.innerText = txt;
-  //this called ternary operator (shortcut instead using if and else )
-  
-  circle.style.backgroundColor = `${state}`
-  change();
+  var asked = quest.value.toLowerCase().trim();
+  clearInterval(hintInterval);
+  if (!asked) {
+    quest.placeholder = "Please type something!";
+    return;
+  }
+  ans.innerText = getAnswer(asked);
 })
+
+function showHints() {
+  quest.placeholder = "Try asking: " + hints[hintIndex];
+  hintIndex = (hintIndex + 1) % hints.length;
+}
+let hintInterval = setInterval(showHints, 1200);
