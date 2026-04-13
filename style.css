@@ -1,43 +1,16 @@
 body {
-    background: #736DA3;
-  }
-  
-  h1{
-    margin: 3vh 0 0 23vw;
-  }
-  h2 {
-    color: white;
-    position: absolute;
-    top: 15vh;
-    left: 25vw;
-    z-index: 2;
-    font-size: 100px;
-  }
-  .cont {
-    margin-top: 100px;
-    position: relative;
-    height: 75vh;
-    width: 100vw;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQphBHGj9kASF43IHDmWWsRcji8EcYikXG_wycTPcxt9ZToJlHcBIFO35Q&s=10");
-    background-size: cover;
-    
-  }
-  #character {
-    height: 100px;
-    width: 100px;
-    background-image: url("character.png");
-    position: absolute;
-    background-size : cover ;
-    cursor: grab;
-    touch-action: none;
-    z-index: 1;
-  }
-  #reward {
-    height: 100px;
-    width: 100px;
-    background-image: url("reward.png");
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-    background-size : cover ;
-  }
+  background: black;
+}
+
+button {
+  height: 50px;
+  width: 150px;
+  margin: 20vh 0 0 40vw;
+  font-size: 15px;
+  background: red;
+  color: white;
+  border-radius: 5px;
+}
+button:active {
+  background: #49A620;
+}
