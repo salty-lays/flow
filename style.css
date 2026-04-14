@@ -1,16 +1,43 @@
 body {
-  background: black;
+  background: #282C52;
 }
 
-button {
-  height: 50px;
-  width: 150px;
-  margin: 20vh 0 0 40vw;
-  font-size: 15px;
-  background: red;
+#search, #search2 {
+  margin: 7vh 0 0 30vw;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 8px;
+  font-size: 16px;
+  background: transparent;
   color: white;
-  border-radius: 5px;
 }
-button:active {
-  background: #49A620;
+#search2 {
+  margin-top : 9vh;
+  margin-left: 32vw;
+}
+
+#search:focus, #search2:focus {
+  border-bottom-color: #000;
+}
+#debounce, #direct {
+  position: absolute;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  left: 37vw;
+  top: 16vh;
+  border-bottom: 5px solid white;
+}
+#direct {
+  top: 40vh;
+  left: 33vw;
+}
+#res1, #res2 {
+  height: 100px;
+  width: 35vw;
+  background: white;
+  margin: 8vh 0 0 26vw;
+  text-align: center;
+  line-height: 5vh;
+  font-size: 20px;
 }

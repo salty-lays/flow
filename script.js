@@ -1,13 +1,22 @@
-const btn = document.querySelector('button');
-const body = document.querySelector('body');
+import { debounce } from './debounced.js';
+import { direct } from './direct.js'
 
-var state = 'black';
+const input = document.getElementById("search");
+const input2 = document.getElementById('search2');
+const res1 = document.getElementById('res1');
+const res2 = document.getElementById('res2');
 
-btn.addEventListener('click',()=>{
-  
-  state = state === 'black' ? 'white' : 'black';
-  //This is ternary operator
-  //Better than if, else if there are two conditions (here we've black and white)
-  //so ? checks if its true then pass the value next to it if not true then pass after colon value
-  body.style.backgroundColor = state
+//just handles input of first (debouncing)
+function handleTyped(e) {
+  res1.innerText = e.target.value;
+}
+
+const debouncedSearch = 
+debounce(handleTyped, 500);
+
+input.addEventListener("input", debouncedSearch);
+
+//this (below) handles second typed input (direct/non-debounced)
+input2.addEventListener('input',()=>{
+  direct(res2,input2.value)
 })
