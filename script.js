@@ -1,23 +1,37 @@
-import { user } from './object.js'
+import { calc } from "./calculation.js";
 
-  
-const cont1 = document.getElementById('cont1');
-const cont2 = document.getElementById('cont2');
+const input1 = document.getElementById('num1');
+const input2 = document.getElementById('num2');
+const res = document.getElementById('res');
+const btn = document.querySelector('button');
 
-function work1() {
-  const input1 = document.getElementById('w1').value.trim().toLowerCase();
-  
-  cont1.innerText = user[input1]
-}
-function work2() {
-  const input2 = document.getElementById('w2').value.trim().toLowerCase();
-  if (input2.includes('height')) {
-    cont2.innerText = user?.height || "Height isn't available"
-  }
-  else {
-  cont2.innerText = user[input2] || 'Not found'
-  }
+const operators = ['+', '-', '/', '*'];
+
+function calcAsync(num1, operator, num2) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(calc(num1, operator, num2));
+    }, 1000);
+  });
 }
 
-document.getElementById('btn1').addEventListener('click',work1)
-document.getElementById('btn2').addEventListener('click',work2)
+async function checkforOper() {
+  let operator = document.getElementById('operator').value;
+  
+  if (!operators.includes(operator)) {
+    res.innerText = 'plz enter valid';
+    return;
+  }
+  
+  res.innerText = "Calculating...";
+  
+  const result = await calcAsync(
+    Number(input1.value),
+    operator,
+    Number(input2.value)
+  );
+  
+  res.innerText = result;
+}
+
+btn.addEventListener('click', checkforOper);
