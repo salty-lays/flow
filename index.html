@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-</head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Reflect</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Courier+Prime&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <h1>ASYNC CALCULATOR...</h1>
-  <div class="glassContainer">
-    <input id="num1" placeholder="Num 1" type="number"/>
-    <input id="operator"/>
-    <input id="num2"/ placeholder="Num 2" type="number">
+
+
+<div class="code-block">
+  <div class="code-header">
+    <span class="code-label"></span>
   </div>
-  <button type="submit">Calculate</button>
-  
-  <div class="result">
-    <h2>RESULT</h2>
-    <div id="res">xxx</div>
-  </div>
-</body>
+  <pre class="code-body"><code id="b64">SGlpIHJ1dHUsIGltIG1pc3NpbmcgeW91</code></pre>
+</div>
+
+<h1>Reflect</h1>
+<p class="sub">type · press · see</p>
+
+<div class="card">
+  <input id="inp" type="text" placeholder="write something…" maxlength="200" autocomplete="off"/>
+  <button id="btn" disabled>Reflect →</button>
+
+  <hr class="divider"/>
+
+  <div class="label">Reflection</div>
+  <div id="output" class="empty">your words will appear here…</div>
+</div>
 
 <script src="script.js" type="module"></script>
+</body>
 </html>
