@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>JS Function Lab</title>
+  <link rel="stylesheet" href="lab.css"/>
+</head>
+<body>
+
+  <div class="scanline"></div>
+
+  <div class="container">
+
+    <header>
+      <div class="logo">JS<span>LAB</span></div>
+
+      <div class="progress-bar">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-text" id="progressText">1 / 4</span>
+      </div>
+    </header>
+
+    <!-- Challenge Panel -->
+    <main class="panel" id="challengePanel">
+
+      <div class="challenge-meta">
+        <span class="tag" id="challengeTag">CHALLENGE 01</span>
+        <span class="op-badge" id="opBadge">+</span>
+      </div>
+
+      <h2 class="challenge-title" id="challengeTitle">Write a function</h2>
+      <p class="challenge-desc" id="challengeDesc"></p>
+
+      <div class="editor-wrap">
+        <div class="editor-header">
+          <span class="editor-dot red"></span>
+          <span class="editor-dot yellow"></span>
+          <span class="editor-dot green"></span>
+          <span class="editor-filename">solution.js</span>
+        </div>
+
+        <textarea
+          id="codeInput"
+          class="editor"
+          spellcheck="false"
+          autocomplete="off"
+          placeholder="// write your function here…"
+        ></textarea>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <button class="run-btn" id="runBtn">Run &amp; Check →</button>
+
+    </main>
+
+    <!-- Test Panel (HIDDEN UNTIL FIRST CHALLENGE PASSES) -->
+    <section
+      class="panel test-panel"
+      id="testPanel"
+      hidden
+      aria-hidden="true"
+    >
+
+      <div class="challenge-meta">
+        <span class="tag success-tag">✓ PASSED — NOW TEST IT</span>
+      </div>
+
+      <h2 class="challenge-title">Call your function</h2>
+
+      <p class="challenge-desc">
+        Type the full function call yourself.<br/>
+        Example: <code>add(5,3)</code>
+      </p>
+
+      <div class="test-fields">
+
+        <div class="field-group full-width">
+          <label for="testFnName">Function Call</label>
+
+          <input
+            type="text"
+            id="testFnName"
+            class="test-input"
+            placeholder="e.g. add(5,3)"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+
+      </div>
+
+      <!-- Hidden legacy args field so old JS won't break if referenced -->
+      <input
+        type="hidden"
+        id="testArgs"
+        value=""
+      />
+
+      <button
+        class="run-btn"
+        id="testBtn"
+        type="button"
+      >
+        Execute →
+      </button>
+
+      <div
+        class="result-box"
+        id="resultBox"
+        style="display:none"
+      >
+        <span class="result-label" id="resultLabel">RESULT</span>
+        <span class="result-value" id="resultValue"></span>
+      </div>
+
+      <button
+        class="next-btn"
+        id="nextBtn"
+        type="button"
+        disabled
+      >
+        Next Challenge →
+      </button>
+
+    </section>
+
+    <!-- Complete Panel -->
+    <section
+      class="panel complete-panel"
+      id="completePanel"
+      hidden
+      aria-hidden="true"
+    >
+      <div class="complete-icon">⚡</div>
+
+      <h2 class="challenge-title">All Done!</h2>
+
+      <p class="challenge-desc">
+        You've completed all four function challenges.
+      </p>
+
+      <button
+        class="run-btn"
+        id="restartBtn"
+        type="button"
+      >
+        Start Over →
+      </button>
+    </section>
+
+  </div>
+
+  <script src="lab.js"></script>
+
+</body>
+</html>
