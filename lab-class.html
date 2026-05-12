@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JS Classes Lab</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="lab-class.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+        <div class="lab-badge">Lab 03</div>
+        <h1>JS <span>Classes</span></h1>
+      </div>
+
+      <div class="header-sub">
+        // learn classes step by step · beginner friendly
+      </div>
+    </div>
+  </header>
+
+  <!-- THEORY -->
+  <div class="section-label">Theory</div>
+
+  <div class="lab-section">
+
+    <!-- TABS -->
+    <div class="file-tabs">
+      <div class="file-tab active" onclick="switchTab(this,'tab-what')">📘 What is a Class?</div>
+      <div class="file-tab" onclick="switchTab(this,'tab-syntax')"> Syntax</div>
+      <div class="file-tab" onclick="switchTab(this,'tab-call')">Calling Methods</div>
+    </div>
+
+    <!-- TAB 1 -->
+    <div id="tab-what" class="tab-content active">
+      <p style="color:#94a3b8;font-size:14px;line-height:1.8;margin-bottom:16px;">
+        A <strong style="color:var(--accent)">class</strong> is like a blueprint or recipe.
+
+        It tells JavaScript how to create objects.
+
+        Think:
+
+        • Class = Blueprint  
+        • Object = Real thing made from blueprint  
+
+        Example:
+        A Car blueprint can create many cars.
+
+        The constructor gives starting values when the object is created.
+
+        Simple idea:
+        A class keeps data + actions together.
+      </p>
+
+      <div class="code-block">
+<span class="cm">// Blueprint (Class Definition)</span>
+<span class="kw">class</span> <span class="cl">Animal</span> {
+  <span class="fn">constructor</span>(<span class="prop">name</span>) {
+    <span class="kw">this</span>.<span class="prop">name</span> = <span class="prop">name</span>;
+  }
+
+  <span class="fn">speak</span>() {
+    <span class="kw">return</span> <span class="str">`<span class="kw">${</span><span class="kw">this</span>.<span class="prop">name</span><span class="kw">}</span> makes a sound.`</span>;
+  }
+}
+
+<span class="cm">// Creating an instance</span>
+<span class="kw">const</span> <span class="prop">dog</span> = <span class="kw">new</span> <span class="cl">Animal</span>(<span class="str">"Rex"</span>);
+<span class="prop">dog</span>.<span class="fn">speak</span>();
+
+<span class="cm">// Output: Rex makes a sound.</span>
+      </div>
+    </div>
+
+    <!-- TAB 2 -->
+    <div id="tab-syntax" class="tab-content">
+      <p style="color:#94a3b8;font-size:14px;line-height:1.8;margin-bottom:16px;">
+        Every class has 3 main parts:
+
+        ① Class Name → Blueprint name  
+        ② Constructor → Special setup function that runs automatically when you create an object  
+        ③ Methods → Actions your object can do
+
+        Example:
+        new MathOps(10,5)
+
+        This sends:
+        a = 10  
+        b = 5
+
+        Constructor stores them:
+        this.a = a  
+        this.b = b
+
+        Easy Memory Trick:
+
+        constructor = setup  
+        methods = actions
+      </p>
+      <p style="color:#cbd5e1;font-size:13px;line-height:1.8;margin:12px 0;">
+  <strong style="color:var(--accent);">Constructor</strong> is a
+  <span style="color:var(--accent2);font-weight:600;">special function</span>
+  that runs automatically when you create an object using
+  <code style="color:#67e8f9;background:rgba(103,232,249,0.08);padding:2px 6px;border-radius:4px;">new</code>.
+  It sets up the object’s starting values, like storing
+  <code style="color:#f9a8d4;background:rgba(249,168,212,0.08);padding:2px 6px;border-radius:4px;">a</code>
+  and
+  <code style="color:#f9a8d4;background:rgba(249,168,212,0.08);padding:2px 6px;border-radius:4px;">b</code>
+  inside
+  <code style="color:#86efac;background:rgba(134,239,172,0.08);padding:2px 6px;border-radius:4px;">this.a</code>
+  and
+  <code style="color:#86efac;background:rgba(134,239,172,0.08);padding:2px 6px;border-radius:4px;">this.b</code>.
+</p>
+      <div class="code-block">
+<span class="kw">class</span> <span class="cl">MathOps</span> {
+
+  <span class="cm">// constructor runs automatically</span>
+  <span class="fn">constructor</span>(<span class="prop">a</span>, <span class="prop">b</span>) {
+
+    <span class="cm">// Save values in object</span>
+    <span class="kw">this</span>.<span class="prop">a</span> = <span class="prop">a</span>;
+    <span class="kw">this</span>.<span class="prop">b</span> = <span class="prop">b</span>;
+  }
+
+  <span class="fn">add</span>() {
+    <span class="kw">return</span> <span class="kw">this</span>.<span class="prop">a</span> + <span class="kw">this</span>.<span class="prop">b</span>;
+  }
+
+  <span class="fn">subtract</span>() {
+    <span class="kw">return</span> <span class="kw">this</span>.<span class="prop">a</span> - <span class="kw">this</span>.<span class="prop">b</span>;
+  }
+}
+
+<span class="kw">const</span> <span class="prop">calc</span> = <span class="kw">new</span> <span class="cl">MathOps</span>(<span class="num">10</span>, <span class="num">5</span>);
+
+<span class="prop">calc</span>.<span class="fn">add</span>();
+<span class="cm">// 15</span>
+
+<span class="prop">calc</span>.<span class="fn">subtract</span>();
+<span class="cm">// 5</span>
+      </div>
+    </div>
+
+    <!-- TAB 3 -->
+    <div id="tab-call" class="tab-content">
+      <p style="color:#94a3b8;font-size:14px;line-height:1.8;margin-bottom:16px;">
+        To use a class:
+
+        Step 1: Define class  
+        Step 2: Create object using new  
+        Step 3: Call methods with dot notation
+
+        Example:
+        calc.sum()
+
+        Meaning:
+        “Run the sum method on calc”
+      </p>
+
+      <div class="code-block">
+<span class="cm">// 1. Define</span>
+<span class="kw">class</span> <span class="cl">Calculator</span> {
+  <span class="fn">constructor</span>(<span class="prop">x</span>, <span class="prop">y</span>) {
+    <span class="kw">this</span>.<span class="prop">x</span> = <span class="prop">x</span>;
+    <span class="kw">this</span>.<span class="prop">y</span> = <span class="prop">y</span>;
+  }
+
+  <span class="fn">sum</span>() {
+    <span class="kw">return</span> <span class="kw">this</span>.<span class="prop">x</span> + <span class="kw">this</span>.<span class="prop">y</span>;
+  }
+}
+
+<span class="cm">// 2. Instantiate</span>
+<span class="kw">const</span> <span class="prop">calc</span> = <span class="kw">new</span> <span class="cl">Calculator</span>(<span class="num">10</span>, <span class="num">5</span>);
+
+<span class="cm">// 3. Call</span>
+<span class="prop">calc</span>.<span class="fn">sum</span>();
+
+<span class="cm">// Output: 15</span>
+      </div>
+
+      <div class="tip">
+        object.method() → tells object what action to perform
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="section-label">Interactive Lab</div>
+
+  <div class="lab-section">
+    <div class="lab-header">
+      <div class="lab-title">
+        <div class="dot"></div>
+        calculator-class.js
+      </div>
+
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);">
+        live execution
+      </div>
+    </div>
+
+    <div class="lab-body">
+
+      <!-- STEPS -->
+      <div class="steps">
+        <div class="step active" id="step1"><div class="step-num">1</div> Define Class</div>
+        <div class="step" id="step2"><div class="step-num">2</div> Name Methods</div>
+        <div class="step" id="step3"><div class="step-num">3</div> Test It</div>
+      </div>
+
+      <!-- QUESTION -->
+      <div class="question-box">
+        <div class="q-num">// Question 01</div>
+
+        Create a JavaScript class named <code class="nametag">MathOps</code>.
+
+        Your class should:
+
+        • Take 2 numbers:
+        <code class="nametag">a</code> and
+        <code class="nametag">b</code>
+
+        • Store them using:
+        <code class="nametag">this.a</code> and
+        <code class="nametag">this.b</code>
+
+        • Make 4 methods:
+
+        1. Addition  
+        2. Subtraction  
+        3. Multiplication  
+        4. Division  
+
+        In Step 2, choose your own method names.
+
+        Goal:
+        Build your own calculator class.
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="input-label">Step 1 — Write your class below</div>
+
+      <textarea class="code-editor" id="codeInput" spellcheck="false" placeholder="class MathOps {
+  constructor(a, b) {
+    this.a = a;
+    this.b = b;
+  }
+
+  // your 4 methods here...
+}"></textarea>
+
+      <div class="divider"></div>
+
+      <!-- STEP 2 -->
+      <div class="input-label">Step 2 — Name your four methods</div>
+
+      <div class="names-row">
+
+        <div class="name-field op-add">
+          <label><span></span>Addition method name</label>
+          <input class="name-input" id="nameAdd" type="text" placeholder="e.g. add / sum / plus">
+        </div>
+
+        <div class="name-field op-sub">
+          <label><span></span>Subtraction method name</label>
+          <input class="name-input" id="nameSub" type="text" placeholder="e.g. subtract / minus / diff">
+        </div>
+
+        <div class="name-field op-mul">
+          <label><span></span>Multiplication method name</label>
+          <input class="name-input" id="nameMul" type="text" placeholder="e.g. multiply / times / product">
+        </div>
+
+        <div class="name-field op-div">
+          <label><span></span>Division method name</label>
+          <input class="name-input" id="nameDiv" type="text" placeholder="e.g. divide / quotient / over">
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- STEP 3 -->
+      <div class="input-label">Step 3 — Choose test values</div>
+
+      <div class="test-row">
+
+        <div class="name-field">
+          <label>Value of a</label>
+          <input class="name-input" id="valA" type="number" value="10" placeholder="a">
+        </div>
+
+        <div class="name-field">
+          <label>Value of b</label>
+          <input class="name-input" id="valB" type="number" value="5" placeholder="b">
+        </div>
+
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="runTests()">▶ Run Tests</button>
+        <button class="btn btn-secondary" onclick="resetLab()">↺ Reset</button>
+        <button class="btn btn-secondary" onclick="loadExample()">💡 Show Example</button>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="success-banner" id="successBanner">
+         All 4 tests passed! Your class is working perfectly.
+      </div>
+
+      <!-- CONSOLE -->
+      <div class="console" id="consoleBox" style="display:none;">
+        <div class="console-header">
+          <div class="console-dots">
+            <i style="background:#ef4444"></i>
+            <i style="background:#f59e0b"></i>
+            <i style="background:#10b981"></i>
+          </div>
+
+          <span>console output</span>
+        </div>
+
+        <div class="console-body" id="consoleBody"></div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="result-grid" id="resultGrid"></div>
+
+    </div>
+  </div>
+  
+  <!-- =========================
+PART 3/3
+PASTE THIS RIGHT AFTER PART 2
+STARTS FROM:
+<div class="section-label">Quick Reference</div>
+ENDS AT:
+</html>
+========================= -->
+
+  <!-- QUICK REFERENCE -->
+  <div class="section-label">Quick Reference</div>
+
+  <div class="lab-section">
+
+    <div class="lab-header">
+      <div class="lab-title">
+        <div class="dot" style="background:var(--accent2);box-shadow:0 0 8px var(--accent2)"></div>
+        reference.js
+      </div>
+    </div>
+
+    <div class="lab-body">
+
+      <p style="color:#94a3b8;font-size:14px;margin-bottom:20px;">
+        Full example:
+        One file defines the class,
+        another file uses it.
+      </p>
+
+      <!-- FILE TABS -->
+      <div class="file-tabs" style="background:transparent;padding:0;border-bottom:1px solid var(--border);margin-bottom:20px;">
+        <div class="file-tab active" onclick="switchTab(this,'ref-define')">📄 MathOps.js</div>
+        <div class="file-tab" onclick="switchTab(this,'ref-use')">📄 main.js</div>
+      </div>
+
+      <!-- FILE 1 -->
+      <div id="ref-define" class="tab-content active" style="padding:0;">
+
+        <div class="code-block">
+<span class="cm">// MathOps.js ← class definition</span>
+
+<span class="kw">class</span> <span class="cl">MathOps</span> {
+
+  <span class="fn">constructor</span>(<span class="prop">a</span>, <span class="prop">b</span>) {
+    <span class="kw">this</span>.<span class="prop">a</span> = <span class="prop">a</span>;
+    <span class="kw">this</span>.<span class="prop">b</span> = <span class="prop">b</span>;
+  }
+
+  <span class="fn">add</span>() {
+    <span class="kw">return</span> <span class="kw">this</span>.<span class="prop">a</span> + <span class="kw">this</span>.<span class="prop">b</span>;
+  }
+
+  <span class="fn">subtract</span>() {
+    <span class="kw">return</span> <span class="kw">this</span>.<span class="prop">a</span> - <span class="kw">this</span>.<span class="prop">b</span>;
+  }
+
+  <span class="fn">multiply</span>() {
+    <span class="kw">return</span> <span class="kw">this</span>.<span class="prop">a</span> * <span class="kw">this</span>.<span class="prop">b</span>;
+  }
+
+  <span class="fn">divide</span>() {
+    <span class="kw">if</span> (<span class="kw">this</span>.<span class="prop">b</span> === <span class="num">0</span>) {
+      <span class="kw">return</span> <span class="str">"Cannot divide by zero"</span>;
+    }
+
+    <span class="kw">return</span> <span class="kw">this</span>.<span class="prop">a</span> / <span class="kw">this</span>.<span class="prop">b</span>;
+  }
+
+}
+        </div>
+
+      </div>
+
+      <!-- FILE 2 -->
+      <div id="ref-use" class="tab-content" style="padding:0;">
+
+        <div class="code-block">
+<span class="cm">// main.js ← using the class</span>
+
+<span class="cm">// Create object</span>
+<span class="kw">const</span> <span class="prop">m</span> = <span class="kw">new</span> <span class="cl">MathOps</span>(<span class="num">10</span>, <span class="num">5</span>);
+
+<span class="cm">// Call methods</span>
+<span class="prop">m</span>.<span class="fn">add</span>();       
+<span class="cm">// 15</span>
+
+<span class="prop">m</span>.<span class="fn">subtract</span>();  
+<span class="cm">// 5</span>
+
+<span class="prop">m</span>.<span class="fn">multiply</span>();  
+<span class="cm">// 50</span>
+
+<span class="prop">m</span>.<span class="fn">divide</span>();    
+<span class="cm">// 2</span>
+
+
+<span class="cm">// Reuse with new values</span>
+<span class="kw">const</span> <span class="prop">m2</span> = <span class="kw">new</span> <span class="cl">MathOps</span>(<span class="num">7</span>, <span class="num">3</span>);
+
+<span class="prop">m2</span>.<span class="fn">multiply</span>();
+<span class="cm">// 21</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- JS -->
+<script src="lab-class.js"></script>
+
+</body>
+</html>
