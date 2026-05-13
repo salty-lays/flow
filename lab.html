@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Types Lab</title>
+  <link rel="stylesheet" href="lab.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="lab-header">
+    <div class="header-left">
+      <span class="lab-badge">LAB</span>
+      <h1 class="lab-title">Data Types Lab</h1>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="progressCurrent">1</span> / <span id="progressTotal">9</span></div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="lab-main">
+
+    <!-- LEFT PANEL: Info -->
+    <section class="panel panel-info" id="infoPanel">
+      <div class="panel-tag">INFO</div>
+      <div class="type-chip" id="typeChip">Integer</div>
+      <h2 class="type-name" id="typeName">Integer</h2>
+      <p class="type-desc" id="typeDesc"></p>
+
+      <div class="info-block">
+        <div class="info-block-title">Key Facts</div>
+        <ul class="facts-list" id="factsList"></ul>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-title">Example</div>
+        <pre class="code-example" id="codeExample"></pre>
+      </div>
+    </section>
+
+    <!-- RIGHT PANEL: Task + Editor -->
+    <section class="panel panel-task">
+      <div class="panel-tag">TASK</div>
+      <div class="task-box">
+        <div class="task-label">Your Challenge</div>
+        <p class="task-text" id="taskText"></p>
+      </div>
+
+      <div class="editor-wrap">
+        <div class="editor-top-bar">
+          <span class="editor-lang" id="editorLang">Python</span>
+          <button class="btn-clear" id="btnClear" title="Clear editor">✕ Clear</button>
+        </div>
+        <textarea
+          class="code-editor"
+          id="codeEditor"
+          spellcheck="false"
+          placeholder="# Write your code here..."></textarea>
+      </div>
+
+      <div class="action-row">
+        <button class="btn-run" id="btnRun">▶ Run &amp; Check</button>
+        <button class="btn-hint" id="btnHint">? Hint</button>
+      </div>
+
+      <!-- Feedback -->
+      <div class="feedback-area hidden" id="feedbackArea">
+        <div class="feedback-icon" id="feedbackIcon"></div>
+        <div class="feedback-msg" id="feedbackMsg"></div>
+        <div class="feedback-explain" id="feedbackExplain"></div>
+      </div>
+
+      <!-- Hint -->
+      <div class="hint-area hidden" id="hintArea">
+        <div class="hint-title">💡 Hint</div>
+        <div class="hint-text" id="hintText"></div>
+      </div>
+
+      <!-- Next button -->
+      <div class="next-row hidden" id="nextRow">
+        <button class="btn-next" id="btnNext">Next Data Type →</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- COMPLETION SCREEN -->
+  <div class="completion-screen hidden" id="completionScreen">
+    <div class="completion-card">
+      <div class="completion-icon">🏆</div>
+      <h2 class="completion-title">Lab Complete!</h2>
+      <p class="completion-sub">You covered all data types.</p>
+      <div class="completion-types" id="completionTypes"></div>
+      <button class="btn-restart" id="btnRestart">↺ Restart Lab</button>
+    </div>
+  </div>
+
+  <!-- AI CHECKING OVERLAY -->
+  <div class="checking-overlay hidden" id="checkingOverlay">
+    <div class="checking-card">
+      <div class="checking-spinner"></div>
+      <div class="checking-text">Checking your code…</div>
+    </div>
+  </div>
+
+  <script src="lab.js"></script>
+</body>
+</html>
