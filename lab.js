@@ -1,9 +1,3 @@
-// ============================================================
-//  DATA TYPES LAB — lab.js
-//  Covers: Integer, Float, String, Boolean, List/Array,
-//          Dictionary/Object, Tuple, Set, NoneType/Null
-// ============================================================
-
 const TYPES = [
   {
     id: "integer",
