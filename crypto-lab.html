@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL | ENIGMA PROTOCOL</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
+
+        :root {
+            --neon-green: #00ff9d;
+            --neon-blue: #00d4ff;
+            --bg-dark: #080a0f;
+            --panel-bg: #11141d;
+            --text-main: #c4cedb;
+            --error: #ff4757;
+        }
+
+        * { box-sizing: border-box; transition: all 0.2s ease; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Fira Code', monospace;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Glitch Background Effect */
+        body::before {
+            content: " ";
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .lab-card {
+            width: 100%;
+            max-width: 750px;
+            background: var(--panel-bg);
+            border: 1px solid #2d3446;
+            border-top: 4px solid var(--neon-blue);
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            z-index: 5;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: #1e222d;
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--neon-blue);
+            width: 15%;
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--neon-blue);
+        }
+
+        h1 { margin: 0 0 20px 0; font-size: 1.5rem; color: #fff; }
+
+        .challenge-section {
+            background: #000;
+            padding: 25px;
+            border-radius: 4px;
+            border: 1px solid #1e222d;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .code-display {
+            font-size: 1.2rem;
+            color: var(--neon-green);
+            word-break: break-all;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .label {
+            font-size: 0.7rem;
+            color: #56617a;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #2d3446;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            font-family: inherit;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        input:focus { border-color: var(--neon-blue); }
+
+        .btn-group { display: flex; gap: 15px; }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary { background: var(--neon-blue); color: #000; }
+        .btn-primary:hover { background: #fff; box-shadow: 0 0 20px var(--neon-blue); }
+
+        .btn-hint { background: transparent; border: 1px solid #2d3446; color: #56617a; }
+        .btn-hint:hover { border-color: var(--text-main); color: #fff; }
+
+        .footer-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #1e222d;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .tool-tag {
+            display: inline-block;
+            background: #1e222d;
+            padding: 4px 10px;
+            border-radius: 3px;
+            color: var(--neon-green);
+            text-decoration: none;
+            margin-top: 5px;
+        }
+
+        /* Animations */
+        .shake { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="lab-card fade-in" id="labCard">
+    <div class="status-header">
+        <span id="levelIndicator">Security Clearance: Level 1</span>
+        <span id="timer">SYSTEM: ACTIVE</span>
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <h1 id="title">Initializing Protocol...</h1>
+    
+    <div class="challenge-section">
+        <span class="label" id="typeLabel">Intercepted Transmission</span>
+        <div class="code-display" id="challengeCode">V2VsY29tZSBSZWNydWl0</div>
+    </div>
+
+    <span class="label">Input Decoded Key</span>
+    <input type="text" id="userInput" placeholder="Waiting for data..." spellcheck="false" autocomplete="off">
+    
+    <div class="btn-group">
+        <button class="btn-primary" onclick="submitAnswer()">Execute Decryption</button>
+        <button class="btn-hint" onclick="toggleHint()">Request Intel</button>
+    </div>
+
+    <div class="footer-info">
+        <div id="lessonBox">
+            <span class="label">Intelligence Briefing</span>
+            <span id="lessonContent">Base64 is used to encode binary data into an ASCII string format. It is commonly identified by its use of alphanumeric characters and '=' padding.</span>
+        </div>
+        <div style="margin-top: 15px;">
+            <span class="label">External Decryption Nodes</span>
+            <a href="https://gchq.github.io/CyberChef/" target="_blank" class="tool-tag">CyberChef (Primary Tool)</a>
+            <a href="https://www.dcode.fr/en" target="_blank" class="tool-tag" id="altTool">DCode.fr</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const levels = [
+        {
+            title: "Phase 1: Base64 Obfuscation",
+            code: "ZWsgYmFhdCBzdW5vZ2k_",
+            answer: "ek baat sunogi?",
+            lesson: "Base64 encoding wraps binary data into ASCII. It's the standard for 'hidden in plain sight' data transport.",
+            hint: "Standard B64. Try Base64.guru for deep inspection.",
+            type: "DECODE TRANSMISSION",
+            toolName: "Base64.guru",
+            toolUrl: "https://base64.guru/converter/decode"
+        },
+        {
+            title: "Phase 2: Binary Logic",
+            code: "01101011 01111001 01100001 00100000 01110100 01110101 01101101 01101000 01100101 00101110 00101110",
+            answer: "kya tumhe..",
+            lesson: "Binary is the foundation. 8 bits (1 byte) equals one character in the ASCII table.",
+            hint: "Convert 8-bit blocks to Text. Use RapidTables for fast conversion.",
+            type: "DECODE STREAM",
+            toolName: "RapidTables Binary",
+            toolUrl: "https://www.rapidtables.com/convert/number/binary-to-ascii.html"
+        },
+        {
+            title: "Phase 3: Firewall Spoofing",
+            code: "INPUT REQUIRED: DECODE HEX '6d 65 69 69 69 69' To Readable",
+            answer: "meiiii",
+            lesson: "REVERSE PROTOCOL: To bypass the firewall, you must decode the Hexadecimal (Base16) to reading format.",
+            hint: "Type '6d 65 69 69 69 69' into a Hex Encoder. The result should be a string of numbers and letters (41...).",
+            type: "DECODE COMMAND (HEX)",
+            toolName: "String-to-Hex",
+            toolUrl: "https://www.online-toolz.com/tools/text-hex-convertor.php"
+        },
+        {
+            title: "Phase 4: The MD5 Fingerprint",
+            code: "5ebe2294ecd0e0f08eab7690d2a6ee69",
+            answer: "secret",
+            lesson: "Hashing is a one-way trip. To 'decode' it, you must compare it against a database of known pre-computed hashes.",
+            hint: "This is a 32-char MD5 hash. Use a dedicated cracker like CrackStation.",
+            type: "CRACK HASH",
+            toolName: "CrackStation",
+            toolUrl: "https://crackstation.net/"
+        },
+        {
+            title: "Phase 5: Caesar's Shift",
+            code: "no cfaq anv uh",
+            answer: "ab psnd nai hu",
+            lesson: "The Caesar Cipher is a substitution shift. ROT13 is the most common variant used in puzzles.",
+            hint: "Rotate the alphabet by 13 places. Cryptii is perfect for this.",
+            type: "DECRYPT SUBSTITUTION",
+            toolName: "Cryptii (ROT13)",
+            toolUrl: "https://cryptii.com/pipes/caesar-cipher"
+        }
+    ];
+
+    let currentLevel = 0;
+
+    function submitAnswer() {
+        const input = document.getElementById('userInput');
+        const card = document.getElementById('labCard');
+        const val = input.value.trim().replace(/\s/g, ''); // Remove spaces for Hex/Binary inputs
+
+        // Check against answer (case insensitive)
+        if (val.toLowerCase() === levels[currentLevel].answer.toLowerCase().replace(/\s/g, '')) {
+            currentLevel++;
+            card.style.borderColor = "var(--neon-green)";
+            
+            if (currentLevel < levels.length) {
+                renderLevel();
+            } else {
+                finishLab();
+            }
+        } else {
+            card.classList.add('shake');
+            input.style.borderBottomColor = "var(--error)";
+            setTimeout(() => {
+                card.classList.remove('shake');
+                input.style.borderBottomColor = "#2d3446";
+            }, 500);
+        }
+    }
+
+    function renderLevel() {
+        const data = levels[currentLevel];
+        document.getElementById('title').innerText = data.title;
+        document.getElementById('challengeCode').innerText = data.code;
+        document.getElementById('lessonContent').innerText = data.lesson;
+        document.getElementById('typeLabel').innerText = data.type;
+        document.getElementById('levelIndicator').innerText = `Security Clearance: Level ${currentLevel + 1}`;
+        document.getElementById('userInput').value = "";
+        
+        // Update the specific tool link
+        const toolLink = document.getElementById('altTool');
+        toolLink.innerText = `Node: ${data.toolName}`;
+        toolLink.href = data.toolUrl;
+        
+        const progress = ((currentLevel) / levels.length) * 100;
+        document.getElementById('progressBar').style.width = progress + "%";
+    }
+
+    function toggleHint() {
+        alert("INTEL: " + levels[currentLevel].hint);
+    }
+
+    function finishLab() {
+        document.getElementById('progressBar').style.width = "100%";
+        document.getElementById('labCard').innerHTML = `
+            <div style="text-align:center; padding: 40px;">
+                <h1 style="color:var(--neon-green); font-size: 3rem; margin-bottom:10px;">SYSTEM BREACHED</h1>
+                <p style="letter-spacing:1px;">All encryption layers neutralized. Access granted to root directory.</p>
+                <div style="background:#000; padding:20px; border: 1px dashed var(--neon-green); margin: 20px 0;">
+                    <code>Look Whos That Good Girl!</code>
+                </div>
+                <button class="btn-primary" onclick="location.reload()" style="width:200px">Reboot System</button>
+            </div>
+        `;
+    }
+
+    window.onload = renderLevel;
+</script>
+
+</body>
+</html>
